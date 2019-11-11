@@ -11,8 +11,9 @@ export default function WelcomePage() {
           src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
           alt="rick"
         />
-        <Link to="/characters"/>
-        <button>Welcome!</button>
+        <Link to="/characters">
+        <button>See Characters</button>
+        </Link>
       </header>
     </section>
   );

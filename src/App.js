@@ -1,7 +1,8 @@
 import React from "react";
 import Header from "./components/Header.js";
-import { Route } from "react-router-dom";
 import WelcomePage from "./components/WelcomePage.js";
+import { Route } from "react-router-dom";
+
 
 
 export default function App() {
@@ -9,7 +10,6 @@ export default function App() {
     <main>
       <Route exact path="/" component={WelcomePage} />
       <Route path="/characters" component={Header} />
-      
     </main>
   );
 }
