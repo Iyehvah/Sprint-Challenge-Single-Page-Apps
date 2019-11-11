@@ -8,7 +8,7 @@ export default function SearchForm(props) {
   const handleChange = e => {
     setSearchTerm(e.target.value);
     const results = props.characters.filter(character =>
-      character.name.toLowerCase().includes(searchTerm)
+      character.name.toLowerCase().includes(e.target.value)
     );
 
     setSearchResults(results);
