@@ -1,10 +1,30 @@
 import React, { useState } from "react";
 
-export default function SearchForm() {
- 
+
+export default function SearchForm(props) {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+
+  const handleChange = e => {
+    setSearchTerm(e.target.value);
+    const results = props.characters.filter(character =>
+      character.name.toLowerCase().includes(e.target.value)
+    );
+
+    setSearchResults(results);
+    props.setCharacters(results);
+    console.log(results)
+  };
+
   return (
     <section className="search-form">
-     // Add a search form here
+      <input 
+        type="text"
+        placeholder="search"
+        value={searchTerm}
+        onChange={handleChange}
+        />
     </section>
   );
 }
+
