@@ -2,26 +2,28 @@ import React, { useState } from "react";
 
 
 export default function SearchForm(props) {
- console.log(props);
- const [ search, setSearch ] = useState("");
- const [ searchResults, setSearchResults ] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
 
- const handleChange = e => {
-   setSearch(e.target.value);
-   const results = props.characters.filter(characters =>{
-     characters.name.toLowerCase().includes(search)
-   });
-   setSearchResults(results);
-   props.setCharacters(results);
- }
+  const handleChange = e => {
+    setSearchTerm(e.target.value);
+    const results = props.characters.filter(character =>
+      character.name.toLowerCase().includes(searchTerm)
+    );
+
+    setSearchResults(results);
+    props.setCharacters(results);
+    console.log(results)
+  };
+
   return (
     <section className="search-form">
-      <input
+      <input 
         type="text"
-        placeholder="Search"
-        value={search}
+        placeholder="search"
+        value={searchTerm}
         onChange={handleChange}
-      />
+        />
     </section>
   );
 }

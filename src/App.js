@@ -9,7 +9,7 @@ export default function App() {
   return (
     <main>
       <Route exact path="/" component={WelcomePage} />
-      <Route path="/characters" component={Header} />
+      <Route exact path="/characters" render={(props) => <Header {...props} />} />
     </main>
   );
 }
